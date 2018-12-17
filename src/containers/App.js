@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
-import CardList from '../components/CardList';
-import SearchBox from '../components/SearchBox';
-import Scroll from '../components/Scroll';
-import ErrorBoundry from '../components/ErrorBoundry';
+// import CardList from '../components/CardList';
+// import SearchBox from '../components/SearchBox';
+// import Scroll from '../components/Scroll';
+// import ErrorBoundry from '../components/ErrorBoundry';
 import './App.css';
 import {setSearchField, requestRobots} from '../actions'
-import Header from '../components/Header';
+// import Header from '../components/Header';
+import MainPage from '../components/MainPage';
 
 const mapStateToProps = state => {
 	return {
@@ -31,8 +32,8 @@ class App extends Component {
     // 		// searchfield: ''
 		// 	}
 		// }
-		componentDidMount() {
-			this.props.onRequestRobots()
+		// componentDidMount() {
+		// 	this.props.onRequestRobots()
 			// console.log(this.props.store.getState())
 			// fetch('https://jsonplaceholder.typicode.com/users')
 			// 	.then(response=>{
@@ -41,31 +42,14 @@ class App extends Component {
 			// 	.then(users=>{
 			// 		this.setState({robots: users})
 			// 	})
-		}
+		// }
 
 		// onSearchChange = (event) => {
 		// 	this.setState({searchfield: event.target.value})
 		// }
 
     render() {
-				// const {robots} = this.state
-				const {searchField, onSearchChange, robots, isPending} = this.props
-				const filterRobots = robots.filter(robot => {
-					return robot.name.toLowerCase().includes(searchField.toLowerCase())
-				})
-				return isPending ?
-					<h1>Loading</h1> :
-					(
-            <div className='tc'>
-							<Header />
-							<SearchBox searchChange={onSearchChange}/>
-							<Scroll>
-								<ErrorBoundry>
-									<CardList robots={filterRobots}/>
-								</ErrorBoundry>
-							</Scroll>
-            </div>
-        	)
+		return <MainPage {...this.props}/>
     }
 
 }
