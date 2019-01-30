@@ -4,19 +4,18 @@ import {
 	REQUEST_ROBOTS_SUCCESS,
 	REQUEST_ROBOTS_FAILED
 } from './constants.js'
+
 const intialStateSearch = {
-    searchField: ''
+  searchField: ''
 }
 
 export const searchRobots = (state=intialStateSearch, action={}) => {
-		// console.log(action.type)
-    switch(action.type) {
-			case CHANGE_SEARCH_FIELD:
-				return Object.assign({}, state, {searchField: action.payload})
-				// return { ...state, searchField: action.payload}
-			default:
-				return state
-    }
+  switch(action.type) {
+    case CHANGE_SEARCH_FIELD:
+      return Object.assign({}, state, {searchField: action.payload})
+    default:
+      return state
+  }
 }
 
 const intialStateRobots = {

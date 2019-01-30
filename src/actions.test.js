@@ -1,16 +1,13 @@
 import * as actions from './actions'
 import {
-    CHANGE_SEARCH_FIELD,
-    REQUEST_ROBOTS_PENDING,
-    REQUEST_ROBOTS_SUCCESS,
-    REQUEST_ROBOTS_FAILED
+  CHANGE_SEARCH_FIELD
 } from './constants.js'
 
 it('should creat an action to search robots', () => {
-    const text = 'wooo'
-    const expectedAction = {
-        type: CHANGE_SEARCH_FIELD,
-        payload: text
-    }
-    expect(actions.setSearchField(text)).toEqual(expectedAction)
+  const text = 'wooo'
+  const expectedAction = {
+    type: CHANGE_SEARCH_FIELD,
+    payload: text
+  }
+  expect(actions.setSearchField(text)).toEqual(expectedAction)
 })
